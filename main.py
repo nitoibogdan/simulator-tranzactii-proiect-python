@@ -4,11 +4,9 @@ import os
 FISIER_DATE = 'conturi.json'
 
 
-# ==========================================
-# 1. PARTEA DARIEI: Logică de bază & JSON
-# ==========================================
+
 def incarca_date():
-    # Dacă fișierul nu există, creăm niște date de test cu două conturi
+
     if not os.path.exists(FISIER_DATE):
         date_initiale = {
             "RO123": {"sold": 1000.0, "istoric": []},
@@ -46,9 +44,7 @@ def retragere(id_cont, suma):
     return False
 
 
-# ==========================================
-# 2. PARTEA LUI BOGDAN: Transferuri
-# ==========================================
+
 def transfer(sursa, destinatie, suma):
     date = incarca_date()
     if sursa in date and destinatie in date and suma > 0:
@@ -62,9 +58,7 @@ def transfer(sursa, destinatie, suma):
     return False
 
 
-# ==========================================
-# 3. PARTEA TA (ANDREI): Rapoarte
-# ==========================================
+
 def genereaza_raport(id_cont):
     date = incarca_date()
     if id_cont not in date:
@@ -83,9 +77,7 @@ def genereaza_raport(id_cont):
     return raport
 
 
-# ==========================================
-# 4. PARTEA RUXANDREI (Macheta pt GUI)
-# ==========================================
+
 def meniu_interfata():
     incarca_date()  # Asigură crearea fișierului
     while True:
